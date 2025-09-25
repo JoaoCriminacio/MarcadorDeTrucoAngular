@@ -1,1 +1,25 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+html, body {
+  height: 100vh;
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-image: url('/background/campo-de-futebol-de-cima.jpg');
+  background-size: contain;
+  background-position: center;
+  min-height: 100vh;
+}
+
+.dialog-backdrop {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.mat-mdc-dialog-container .mdc-dialog__surface {
+  background-color: color-mix(in oklab, var(--color-black) 35%, transparent) !important;
+}

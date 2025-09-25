@@ -1,0 +1,62 @@
+<div class="flex flex-col items-center gap-y-10 w-full max-w-sm sm:max-w-md md:max-w-lg px-2">
+  <h2 class="text-2xl sm:text-3xl text-center w-full p-2 bg-blue-600 text-white rounded-lg shadow-lg">{{ imagesArray[selectedIndex].name }}</h2>
+
+  <div class="flex items-center justify-center w-full gap-x-4">
+    <button [ngClass]="{'invisible': isTeamSelected || isMatchInProgress()}"
+            (click)="navigate(-1)"
+            class="h-8 w-8 bg-blue-600 text-white rounded-full flex justify-center items-center shadow-lg hover:bg-blue-700 transition cursor-pointer">
+      <mat-icon>chevron_left</mat-icon>
+    </button>
+
+    <div [ngClass]="{'opacity-50': isTeamSelected}" class="flex justify-center items-center w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72">
+      <img [src]="imagesArray[selectedIndex].src"
+           [alt]="imagesArray[selectedIndex].alt"
+           class="max-w-full max-h-full object-contain"/>
+    </div>
+
+    <button [ngClass]="{'invisible': isTeamSelected  || isMatchInProgress()}"
+            (click)="navigate(1)"
+            class="h-8 w-8 bg-blue-600 text-white rounded-full flex justify-center items-center shadow-lg hover:bg-blue-700 transition cursor-pointer">
+      <mat-icon>chevron_right</mat-icon>
+    </button>
+  </div>
+
+  @if (isMatchInProgress()) {
+    <div class="flex justify-center items-center gap-x-6">
+      <button (click)="addPoints()"
+              class="h-12 w-12 bg-green-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-green-700 transition cursor-pointer">
+        <mat-icon>add</mat-icon>
+      </button>
+
+      <h2 class="text-5xl text-center w-20 p-2 text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
+
+      <button (click)="removePoints()"
+              class="h-12 w-12 bg-red-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-red-700 transition cursor-pointer">
+        <mat-icon>remove</mat-icon>
+      </button>
+    </div>
+
+    <button (click)="truco()"
+            class="w-44 p-3 bg-blue-600 text-white rounded-lg flex justify-center items-center gap-4 shadow-lg hover:bg-blue-700 transition cursor-pointer">
+      <mat-icon>sports_soccer</mat-icon>
+      <span class="text-xl">{{ trucoLabel }}</span>
+      <mat-icon>sports_soccer</mat-icon>
+    </button>
+
+    <span class="p-2 bg-blue-600 text-white rounded-lg shadow-lg">Vitórias: {{ victories }}</span>
+  }
+
+  @if (!isMatchInProgress()) {
+    @if (!isTeamSelected) {
+      <button (click)="onSelectTeam(imagesArray[selectedIndex])"
+              class="w-44 p-2 bg-blue-600 text-white rounded-full shadow-lg hover:bg-blue-700 transition cursor-pointer">
+        Selecione seu time
+      </button>
+    } @else {
+      <button (click)="onUnselectTeam()"
+              class="w-44 p-2 bg-red-600 text-white rounded-full shadow-lg hover:bg-red-700 transition cursor-pointer">
+        Escolha outro time
+      </button>
+    }
+  }
+</div>
