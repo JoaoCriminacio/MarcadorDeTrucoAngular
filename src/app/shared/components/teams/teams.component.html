@@ -37,13 +37,13 @@
     </div>
 
     <button (click)="truco()"
-            class="w-44 p-3 bg-blue-600 text-white rounded-lg flex justify-center items-center gap-4 shadow-lg hover:bg-blue-700 transition cursor-pointer">
+            class="w-44 p-3 bg-black text-white rounded-lg flex justify-center items-center gap-4 shadow-lg hover:bg-gray-900 transition cursor-pointer">
       <mat-icon>sports_soccer</mat-icon>
       <span class="text-xl">{{ trucoLabel }}</span>
       <mat-icon>sports_soccer</mat-icon>
     </button>
 
-    <span class="p-2 bg-blue-600 text-white rounded-lg shadow-lg">Vitórias: {{ victories }}</span>
+    <span class="p-2 bg-gray-400 text-white rounded-lg shadow-lg">Vitórias: {{ victories }}</span>
   }
 
   @if (!isMatchInProgress()) {

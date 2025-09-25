@@ -63,6 +63,9 @@ export class TeamsComponent {
 
     protected addPoints() {
       this.points += this.trucoPoints;
+      this.trucoLabel = 'Truco';
+      this.trucoPoints = 1;
+      this.trucoClicks = 0;
 
       if (this.points >= 12) {
         this.openWinDialog();
