@@ -9,7 +9,7 @@ html, body {
 }
 body {
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Helvetica Neue", sans-serif;
   background-image: url('/background/campo-de-futebol-de-cima.jpg');
   background-size: contain;
   background-position: center;
