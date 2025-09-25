@@ -10,7 +10,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 })
 export class DialogWinComponent implements OnInit {
     protected data = inject<ITeam>(MAT_DIALOG_DATA);
-    protected audio = new Audio(`/audios/anthem/${this.data.simplifiedName}.mp3`);
+    protected audio = new Audio(`audios/anthem/${this.data.simplifiedName}.mp3`);
 
     constructor(protected dialogRef: MatDialogRef<DialogWinComponent>) {}
 

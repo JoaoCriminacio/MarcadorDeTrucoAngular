@@ -50,7 +50,7 @@ export class TeamsComponent {
       this.selectedTeam.emit(team);
       this.isTeamSelected = true;
 
-      let audio = new Audio(`/audios/call/${team.simplifiedName}.mp3`);
+      let audio = new Audio(`audios/call/${team.simplifiedName}.mp3`);
       audio.currentTime = 0;
       audio.play();
     }
