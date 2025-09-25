@@ -28,4 +28,4 @@
 
 ## 🌐 Acesse o Projeto
 O projeto pode ser acessado online por meio do GitHub Pages: <br>
-👉 [Marcador de Truco](https://github.com/JoaoCriminacio/MarcadorDeTrucoAngular.git)
+👉 [Marcador de Truco](https://joaocriminacio.github.io/MarcadorDeTrucoAngular/)
