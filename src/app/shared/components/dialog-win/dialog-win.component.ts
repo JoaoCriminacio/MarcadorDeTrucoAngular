@@ -9,24 +9,28 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./dialog-win.component.css']
 })
 export class DialogWinComponent implements OnInit {
-    protected data = inject<ITeam>(MAT_DIALOG_DATA);
-    protected audio = new Audio(`audios/anthem/${this.data.simplifiedName}.mp3`);
+    protected data = inject<{team: ITeam, playSounds: boolean }>(MAT_DIALOG_DATA);
+    protected audio = new Audio(`audios/anthem/${this.data.team.simplifiedName}.mp3`);
 
     constructor(protected dialogRef: MatDialogRef<DialogWinComponent>) {}
 
     ngOnInit() {
-      this.audio.currentTime = 0;
-      this.audio.play()
-
-      this.dialogRef.afterClosed().subscribe(() => {
-        this.audio.pause();
+      if (this.data.playSounds) {
         this.audio.currentTime = 0;
-      });
+        this.audio.play()
+
+        this.dialogRef.afterClosed().subscribe(() => {
+          this.audio.pause();
+          this.audio.currentTime = 0;
+        });
+      }
     }
 
     protected close() {
-      this.audio.pause();
-      this.audio.currentTime = 0;
+      if (this.data.playSounds) {
+        this.audio.pause();
+        this.audio.currentTime = 0;
+      }
       this.dialogRef.close()
     }
 }

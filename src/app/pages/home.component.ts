@@ -2,12 +2,16 @@ import { Component } from '@angular/core';
 import {ITeam} from '../shared/models/team.model';
 import {TeamsComponent} from '../shared/components/teams/teams.component';
 import {NgClass} from '@angular/common';
+import {MatIcon} from '@angular/material/icon';
+import {MatTooltip} from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-home',
   imports: [
     TeamsComponent,
-    NgClass
+    NgClass,
+    MatIcon,
+    MatTooltip
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
@@ -15,10 +19,22 @@ import {NgClass} from '@angular/common';
 export class HomeComponent {
   images: ITeam[] = [
     {
+      src: 'teams/athletico.png',
+      alt: 'Escudo do Athletico Paranaense',
+      name: 'Athletico Paranaense',
+      simplifiedName: 'athletico'
+    },
+    {
       src: 'teams/atletico-mineiro.png',
       alt: 'Escudo do Atlético Mineiro',
       name: 'Atlético Mineiro',
       simplifiedName: 'atletico-mineiro'
+    },
+    {
+      src: 'teams/avai.png',
+      alt: 'Escudo do Avaí',
+      name: 'Avaí',
+      simplifiedName: 'avai'
     },
     {
       src: 'teams/bahia.png',
@@ -51,10 +67,22 @@ export class HomeComponent {
       simplifiedName: 'corinthians'
     },
     {
+      src: 'teams/coritiba.png',
+      alt: 'Escudo do Coritiba',
+      name: 'Coritiba',
+      simplifiedName: 'coritiba'
+    },
+    {
       src: 'teams/cruzeiro.png',
       alt: 'Escudo do Cruzeiro',
       name: 'Cruzeiro',
       simplifiedName: 'cruzeiro'
+    },
+    {
+      src: 'teams/cuiaba.png',
+      alt: 'Escudo do Cuiabá',
+      name: 'Cuiabá',
+      simplifiedName: 'cuiaba'
     },
     {
       src: 'teams/flamengo.png',
@@ -73,6 +101,12 @@ export class HomeComponent {
       alt: 'Escudo do Fortaleza',
       name: 'Fortaleza',
       simplifiedName: 'fortaleza'
+    },
+    {
+      src: 'teams/goias.png',
+      alt: 'Escudo do Goiás',
+      name: 'Goiás',
+      simplifiedName: 'goias'
     },
     {
       src: 'teams/gremio.png',
@@ -130,8 +164,8 @@ export class HomeComponent {
     }
   ];
 
+  protected playSounds: boolean = true;
   protected isMatchInProcess: boolean = false;
-
   protected leftTeam: ITeam | undefined = undefined;
   protected rightTeam: ITeam | undefined = undefined;
 

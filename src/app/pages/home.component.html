@@ -1,8 +1,16 @@
 <main class="flex flex-col min-h-screen">
+  <button class="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex justify-center items-center shadow-lg mt-4 ml-4"
+          (click)="playSounds = !playSounds"
+          [matTooltip]="playSounds ? 'Desligar efeitos sonoros' : 'Ligar efeitos sonoros'"
+          matTooltipPosition="right"
+          matTooltipClass="bg-black/50 text-white rounded-lg">
+    <mat-icon>{{ playSounds ? 'volume_off' : 'volume_up' }}</mat-icon>
+  </button>
+
   @if (!isMatchInProcess) {
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-6 lg:mt-24 gap-y-12 gap-x-6 justify-items-center items-center w-full px-4">
-      <app-teams [teams]="images" (selectedTeam)="leftTeam = $event"></app-teams>
-      <app-teams [teams]="images" (selectedTeam)="rightTeam = $event"></app-teams>
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 mt-8 md:mt-20 gap-y-12 gap-x-6 justify-items-center items-center w-full px-4">
+      <app-teams [teams]="images" [playSounds]="playSounds" (selectedTeam)="leftTeam = $event"></app-teams>
+      <app-teams [teams]="images" [playSounds]="playSounds" (selectedTeam)="rightTeam = $event"></app-teams>
     </div>
 
     <footer class="mt-auto flex justify-center py-6">
@@ -15,9 +23,9 @@
       </button>
     </footer>
   } @else {
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 mt-6 lg:mt-24 gap-y-12 gap-x-6 justify-items-center items-center w-full px-4">
-      <app-teams [teams]="leftTeam" [isMatchInProgress]="true" (selectedTeam)="leftTeam = $event"></app-teams>
-      <app-teams [teams]="rightTeam" [isMatchInProgress]="true" (selectedTeam)="rightTeam = $event"></app-teams>
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 mt-8 md:mt-20 gap-y-12 gap-x-6 justify-items-center items-center w-full px-4">
+      <app-teams [teams]="leftTeam" [isMatchInProgress]="true" [playSounds]="playSounds" (selectedTeam)="leftTeam = $event"></app-teams>
+      <app-teams [teams]="rightTeam" [isMatchInProgress]="true" [playSounds]="playSounds" (selectedTeam)="rightTeam = $event"></app-teams>
     </div>
 
     <footer class="mt-auto flex justify-center py-6">

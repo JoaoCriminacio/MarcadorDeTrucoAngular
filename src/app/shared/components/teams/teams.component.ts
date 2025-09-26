@@ -18,6 +18,7 @@ import {take} from 'rxjs';
 export class TeamsComponent {
     teams = input<ITeam | ITeam[]>();
     isMatchInProgress = input<boolean>(false);
+    playSounds = input<boolean>(true);
     selectedTeam = output<ITeam | undefined>();
 
     protected selectedIndex: number = 0;
@@ -50,9 +51,11 @@ export class TeamsComponent {
       this.selectedTeam.emit(team);
       this.isTeamSelected = true;
 
-      let audio = new Audio(`audios/call/${team.simplifiedName}.mp3`);
-      audio.currentTime = 0;
-      audio.play();
+      if (this.playSounds()) {
+        let audio = new Audio(`audios/call/${team.simplifiedName}.mp3`);
+        audio.currentTime = 0;
+        audio.play();
+      }
     }
 
     protected onUnselectTeam() {
@@ -103,7 +106,10 @@ export class TeamsComponent {
 
     private openWinDialog() {
       this.dialog.open(DialogWinComponent, {
-        data: this.teams(),
+        data: {
+          team: this.teams(),
+          playSounds: this.playSounds(),
+        },
         backdropClass: 'dialog-backdrop',
         panelClass: 'transparent-dialog-panel'
       }).afterClosed().pipe(take(1)).subscribe(async (value) => {

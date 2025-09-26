@@ -11,7 +11,7 @@ body {
   margin: 0;
   font-family: "Helvetica Neue", sans-serif;
   background-image: url('../public/background/campo-de-futebol-de-cima.jpg');
-  background-size: contain;
+  background-size: cover;
   background-position: center;
   min-height: 100vh;
 }
@@ -21,5 +21,5 @@ body {
 }
 
 .mat-mdc-dialog-container .mdc-dialog__surface {
-  background-color: color-mix(in oklab, var(--color-black) 35%, transparent) !important;
+  background-color: color-mix(in oklab, var(--color-black) 70%, transparent) !important;
 }
