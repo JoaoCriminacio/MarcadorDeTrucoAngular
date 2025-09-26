@@ -2,10 +2,10 @@
 
 <p align ="center">Projeto realizado para treinar.</p>
 <h2>Seleção de Times</h2>
-<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/2adc4cfe-f5d0-40a8-9b3c-ee776f30b095" />
+<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/687cfe83-6a1a-4521-9efd-f54026b68b6b" />
 
 <h2>Partida</h2>
-<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/30d2956d-f980-4859-b587-c8e621e923cf" />
+<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/cc6ea40e-7602-403e-bab1-42c69d5481c5" />
 
 ## 🛠 Tecnologias
 
@@ -14,14 +14,16 @@
     <tr>
       <th>HTML</th>
       <th>CSS</th>
-	  <th>Angular</th>
-	  <th>Tailwind</th>
+      <th>SCSS</th>
+  	  <th>Angular</th>
+  	  <th>Tailwind</th>
     </tr>
     <tr>
       <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=html" alt="HTML"></a></td>
       <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=css" alt="CSS"></a></td>
-	  <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=angular" alt="Angular"></a></td>
-	  <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind"></a></td>
+      <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=scss" alt="SCSS"></a></td>
+  	  <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=angular" alt="Angular"></a></td>
+  	  <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind"></a></td>
     </tr>
   </table>
 </div>
