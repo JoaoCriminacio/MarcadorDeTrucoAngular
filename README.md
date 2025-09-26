@@ -15,6 +15,7 @@
       <th>HTML</th>
       <th>CSS</th>
       <th>SCSS</th>
+      <th>TypeScript</th>
   	  <th>Angular</th>
   	  <th>Tailwind</th>
     </tr>
@@ -22,6 +23,7 @@
       <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=html" alt="HTML"></a></td>
       <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=css" alt="CSS"></a></td>
       <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=scss" alt="SCSS"></a></td>
+      <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=typescript" alt="TypeScript"></a></td>
   	  <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=angular" alt="Angular"></a></td>
   	  <td align="center"><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=tailwind" alt="Tailwind"></a></td>
     </tr>
