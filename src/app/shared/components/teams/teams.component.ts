@@ -22,12 +22,15 @@ export class TeamsComponent {
     selectedTeam = output<ITeam | undefined>();
 
     protected selectedIndex: number = 0;
+    protected nextIndex: number | null = null;
     protected isTeamSelected: boolean = false;
     protected points: number = 0;
     protected victories: number = 0;
     protected trucoClicks: number = 0;
     protected trucoPoints: number = 1;
     protected trucoLabel: string = 'Truco';
+    protected currentAnimation = '';
+    protected nextAnimation = '';
 
     constructor(private dialog: MatDialog) {}
 
@@ -38,16 +41,32 @@ export class TeamsComponent {
 
     protected navigate (direction: number) {
       const arr = this.imagesArray;
-      const newIndex = this.selectedIndex + direction;
+      let newIndex = this.selectedIndex + direction;
 
-      if (newIndex >= 0 && newIndex < arr?.length) this.selectedIndex = newIndex;
+      if (newIndex >= 0 && newIndex < arr?.length) this.nextIndex = newIndex;
+      if (newIndex < 0) this.nextIndex = arr.length - 1;
+      if (newIndex >= arr.length) this.nextIndex = 0;
 
-      if (newIndex < 0) this.selectedIndex = arr?.length - 1;
-
-      if (newIndex >= arr?.length) this.selectedIndex = 0;
+      if (direction > 0) {
+        this.currentAnimation = 'slide-out-left';
+        this.nextAnimation = 'slide-in-right';
+      } else {
+        this.currentAnimation = 'slide-out-right';
+        this.nextAnimation = 'slide-in-left';
+      }
     }
 
-    protected onSelectTeam(team: any) {
+    protected onAnimationEnd() {
+      if (this.nextIndex !== null) {
+        this.selectedIndex = this.nextIndex as number;
+        this.nextIndex = null;
+      }
+
+      this.currentAnimation = '';
+      this.nextAnimation = 'hidden';
+    }
+
+    protected onSelectTeam(team: ITeam) {
       this.selectedTeam.emit(team);
       this.isTeamSelected = true;
 

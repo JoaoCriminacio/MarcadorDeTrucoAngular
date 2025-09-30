@@ -9,10 +9,20 @@
     </button>
 
     <div [ngClass]="{'opacity-50': isTeamSelected}"
-         class="flex justify-center items-center w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72">
+         class="flex justify-center items-center w-40 h-40 sm:w-48 sm:h-48 md:w-72 md:h-72 overflow-hidden relative">
+
       <img [src]="imagesArray[selectedIndex].src"
            [alt]="imagesArray[selectedIndex].alt"
-           class="max-w-full max-h-full object-contain"/>
+           [ngClass]="currentAnimation"
+           (animationend)="onAnimationEnd()"
+           class="absolute max-w-full max-h-full object-contain"/>
+
+      @if (nextIndex) {
+        <img [src]="imagesArray[nextIndex].src"
+             [alt]="imagesArray[nextIndex].alt"
+             [ngClass]="nextAnimation"
+             class="absolute max-w-full max-h-full object-contain"/>
+      }
     </div>
 
     <button [ngClass]="{'invisible': isTeamSelected  || isMatchInProgress()}"
@@ -24,21 +34,21 @@
 
   @if (isMatchInProgress()) {
     <div class="flex justify-center items-center gap-x-6">
-      <button (click)="addPoints()"
-              class="h-10 w-10 sm:h-12 sm:w-12 bg-green-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-green-700 transition cursor-pointer">
-        <mat-icon>add</mat-icon>
-      </button>
-
-      <h2 class="w-15 sm:w-20 p-2 text-3xl sm:text-5xl text-center text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
-
       <button (click)="removePoints()"
               class="h-10 w-10 sm:h-12 sm:w-12 bg-red-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-red-700 transition cursor-pointer">
         <mat-icon>remove</mat-icon>
       </button>
+
+      <h2 class="w-15 sm:w-20 p-2 text-3xl sm:text-5xl text-center text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
+
+      <button (click)="addPoints()"
+              class="h-10 w-10 sm:h-12 sm:w-12 bg-green-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-green-700 transition cursor-pointer">
+        <mat-icon>add</mat-icon>
+      </button>
     </div>
 
     <button (click)="truco()"
-            class="w-44 p-3 bg-black text-white rounded-lg flex justify-center items-center gap-4 shadow-lg hover:bg-gray-900 transition cursor-pointer">
+            class="w-44 p-3 bg-black text-white rounded-lg flex justify-center items-center gap-4 shadow-lg hover:bg-gray-950 transition cursor-pointer">
       <mat-icon>sports_soccer</mat-icon>
       <span class="text-xl">{{ trucoLabel }}</span>
       <mat-icon>sports_soccer</mat-icon>
