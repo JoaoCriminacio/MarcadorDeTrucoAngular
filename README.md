@@ -5,7 +5,7 @@
 <img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/687cfe83-6a1a-4521-9efd-f54026b68b6b" />
 
 <h2>Partida</h2>
-<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/cc6ea40e-7602-403e-bab1-42c69d5481c5" />
+<img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/a3bb57b4-5865-4c21-a871-5dd024bf46fc" />
 
 ## 🛠 Tecnologias
 
