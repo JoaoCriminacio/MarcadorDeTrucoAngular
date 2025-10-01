@@ -1,6 +1,5 @@
 <h1 align="center"> Marcador de Truco - Angular </h1>
 
-<p align ="center">Projeto realizado para treinar.</p>
 <h2>Seleção de Times</h2>
 <img width="1920" height="945" alt="image" src="https://github.com/user-attachments/assets/687cfe83-6a1a-4521-9efd-f54026b68b6b" />
 
@@ -33,3 +32,10 @@
 ## 🌐 Acesse o Projeto
 O projeto pode ser acessado online por meio do GitHub Pages: <br>
 👉 [Marcador de Truco](https://joaocriminacio.github.io/MarcadorDeTrucoAngular/)
+
+---
+
+> [!NOTE]
+> Este projeto foi desenvolvido apenas para fins educacionais e de prática em programação.  
+> Não possui nenhuma afiliação oficial com clubes de futebol ou quaisquer entidades relacionadas.  
+> Todos os nomes, logos e marcas mencionados são de propriedade de seus respectivos donos.
