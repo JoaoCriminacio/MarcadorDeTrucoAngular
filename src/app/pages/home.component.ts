@@ -165,19 +165,19 @@ export class HomeComponent {
     ];
 
     protected playSounds: boolean = true;
-    protected isMatchInProcess: boolean = false;
+    protected isMatchInProgress: boolean = false;
     protected leftTeam: ITeam | undefined = undefined;
     protected rightTeam: ITeam | undefined = undefined;
 
     constructor() {}
 
     protected startMatch() {
-      this.isMatchInProcess = true;
+      this.isMatchInProgress = true;
     }
 
     protected finishMatch() {
       this.leftTeam = undefined;
       this.rightTeam = undefined;
-      this.isMatchInProcess = false;
+      this.isMatchInProgress = false;
     }
 }
