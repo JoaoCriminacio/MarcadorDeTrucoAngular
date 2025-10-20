@@ -183,12 +183,7 @@ export class HomeComponent {
     }
 
     protected onTeamWin() {
-      const leftComp = this.leftTeamComponent();
-      const rightComp = this.rightTeamComponent();
-
-      if (leftComp && rightComp) {
-        leftComp.resetPoints();
-        rightComp.resetPoints();
-      }
+      this.leftTeamComponent()?.resetPoints();
+      this.rightTeamComponent()?.resetPoints();
     }
 }
