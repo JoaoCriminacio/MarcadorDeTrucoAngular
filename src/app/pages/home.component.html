@@ -9,8 +9,15 @@
 
   @if (!isMatchInProgress) {
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 mt-8 md:mt-20 gap-y-12 gap-x-6 justify-items-center items-center w-full px-4">
-      <app-teams [teams]="images" [playSounds]="playSounds" (selectedTeam)="leftTeam = $event"></app-teams>
-      <app-teams [teams]="images" [playSounds]="playSounds" (selectedTeam)="rightTeam = $event"></app-teams>
+      <app-teams [teams]="images"
+                 [playSounds]="playSounds"
+                 (selectedTeam)="leftTeam = $event">
+      </app-teams>
+
+      <app-teams [teams]="images"
+                 [playSounds]="playSounds"
+                 (selectedTeam)="rightTeam = $event">
+      </app-teams>
     </div>
 
     <footer class="mt-auto flex justify-center py-6">
@@ -24,8 +31,21 @@
     </footer>
   } @else {
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 mt-8 md:mt-20 gap-y-12 gap-x-6 justify-items-center items-center w-full px-4">
-      <app-teams [teams]="leftTeam" [isMatchInProgress]="true" [playSounds]="playSounds" (selectedTeam)="leftTeam = $event"></app-teams>
-      <app-teams [teams]="rightTeam" [isMatchInProgress]="true" [playSounds]="playSounds" (selectedTeam)="rightTeam = $event"></app-teams>
+      <app-teams #left
+                 [teams]="leftTeam"
+                 [isMatchInProgress]="true"
+                 [playSounds]="playSounds"
+                 (selectedTeam)="leftTeam = $event"
+                 (teamWon)="onTeamWin()">
+      </app-teams>
+
+      <app-teams #right
+                 [teams]="rightTeam"
+                 [isMatchInProgress]="true"
+                 [playSounds]="playSounds"
+                 (selectedTeam)="rightTeam = $event"
+                 (teamWon)="onTeamWin()">
+      </app-teams>
     </div>
 
     <footer class="mt-auto flex justify-center py-6">

@@ -20,6 +20,7 @@ export class TeamsComponent {
     isMatchInProgress = input<boolean>(false);
     playSounds = input<boolean>(true);
     selectedTeam = output<ITeam | undefined>();
+    teamWon = output<string>();
 
     protected selectedIndex: number = 0;
     protected nextIndex: number | null = null;
@@ -37,6 +38,13 @@ export class TeamsComponent {
     protected get imagesArray(): ITeam[] {
       const value = this.teams();
       return Array.isArray(value) ? value : value ? [value] : [];
+    }
+
+    public resetPoints() {
+      this.points = 0;
+      this.trucoPoints = 1;
+      this.trucoLabel = 'Truco';
+      this.trucoClicks = 0;
     }
 
     protected navigate (direction: number) {
@@ -131,12 +139,9 @@ export class TeamsComponent {
         },
         backdropClass: 'dialog-backdrop',
         panelClass: 'transparent-dialog-panel'
-      }).afterClosed().pipe(take(1)).subscribe(async (value) => {
-        this.points = 0;
+      }).afterClosed().pipe(take(1)).subscribe(() => {
+        this.teamWon.emit('The match is over!');
         this.victories > 99999 ? this.victories = 0 : this.victories++;
-        this.trucoPoints = 1;
-        this.trucoLabel = 'Truco';
-        this.trucoClicks = 0;
       });
     }
 }

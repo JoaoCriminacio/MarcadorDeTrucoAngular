@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, viewChild} from '@angular/core';
 import {ITeam} from '../shared/models/team.model';
 import {TeamsComponent} from '../shared/components/teams/teams.component';
 import {NgClass} from '@angular/common';
@@ -164,12 +164,13 @@ export class HomeComponent {
       }
     ];
 
+    protected leftTeamComponent = viewChild<TeamsComponent>('left');
+    protected rightTeamComponent = viewChild<TeamsComponent>('right');
+
     protected playSounds: boolean = true;
     protected isMatchInProgress: boolean = false;
     protected leftTeam: ITeam | undefined = undefined;
     protected rightTeam: ITeam | undefined = undefined;
-
-    constructor() {}
 
     protected startMatch() {
       this.isMatchInProgress = true;
@@ -179,5 +180,15 @@ export class HomeComponent {
       this.leftTeam = undefined;
       this.rightTeam = undefined;
       this.isMatchInProgress = false;
+    }
+
+    protected onTeamWin() {
+      const leftComp = this.leftTeamComponent();
+      const rightComp = this.rightTeamComponent();
+
+      if (leftComp && rightComp) {
+        leftComp.resetPoints();
+        rightComp.resetPoints();
+      }
     }
 }

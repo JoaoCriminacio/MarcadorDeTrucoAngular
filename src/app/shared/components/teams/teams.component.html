@@ -35,14 +35,14 @@
   @if (isMatchInProgress()) {
     <div class="flex justify-center items-center gap-x-6">
       <button (click)="removePoints()"
-              class="h-10 w-10 sm:h-12 sm:w-12 bg-red-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-red-700 transition cursor-pointer">
+              class="h-12 w-12 bg-red-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-red-700 transition cursor-pointer">
         <mat-icon>remove</mat-icon>
       </button>
 
-      <h2 class="w-15 sm:w-20 p-2 text-3xl sm:text-5xl text-center text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
+      <h2 class="w-20 p-2 text-5xl text-center text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
 
       <button (click)="addPoints()"
-              class="h-10 w-10 sm:h-12 sm:w-12 bg-green-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-green-700 transition cursor-pointer">
+              class="h-12 w-12 bg-green-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-green-700 transition cursor-pointer">
         <mat-icon>add</mat-icon>
       </button>
     </div>
