@@ -1,5 +1,5 @@
 <main class="flex flex-col min-h-screen">
-  <button class="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex justify-center items-center shadow-lg mt-4 ml-4"
+  <button class="w-8 h-8 bg-blue-600 hover:bg-blue-700 text-white rounded-lg flex justify-center items-center shadow-lg my-4 ml-4"
           (click)="playSounds = !playSounds"
           [matTooltip]="playSounds ? 'Desligar efeitos sonoros' : 'Ligar efeitos sonoros'"
           matTooltipPosition="right"
@@ -8,7 +8,7 @@
   </button>
 
   @if (!isMatchInProgress) {
-    <div class="flex-1 grid sm:grid-cols-1 md:grid-cols-2 mt-8 md:mt-20 gap-y-12 gap-x-6 justify-items-center items-center w-full">
+    <div class="flex-1 grid sm:grid-cols-1 md:grid-cols-2 gap-y-4 justify-items-center items-center w-full">
       <app-teams [teams]="images"
                  [playSounds]="playSounds"
                  (selectedTeam)="leftTeam = $event">
@@ -30,7 +30,7 @@
       </button>
     </footer>
   } @else {
-    <div class="flex-1 grid sm:grid-cols-1 md:grid-cols-2 mt-4 md:mt-20 gap-y-6 gap-x-6 justify-items-center items-center w-full">
+    <div class="flex-1 grid sm:grid-cols-1 md:grid-cols-2 gap-y-4 justify-items-center items-center w-full">
       <app-teams #left
                  [teams]="leftTeam"
                  [isMatchInProgress]="true"
