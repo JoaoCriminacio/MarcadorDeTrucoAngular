@@ -171,6 +171,9 @@ export class HomeComponent {
     protected isMatchInProgress: boolean = false;
     protected leftTeam: ITeam | undefined = undefined;
     protected rightTeam: ITeam | undefined = undefined;
+    protected trucoClicks = 0;
+    protected trucoPoints = 1;
+    protected trucoLabel = 'Truco';
 
     protected startMatch() {
       this.isMatchInProgress = true;
@@ -180,10 +183,41 @@ export class HomeComponent {
       this.leftTeam = undefined;
       this.rightTeam = undefined;
       this.isMatchInProgress = false;
+      this.resetTruco();
     }
 
     protected onTeamWin() {
       this.leftTeamComponent()?.resetPoints();
       this.rightTeamComponent()?.resetPoints();
+    }
+
+    protected truco () {
+      if (this.trucoClicks === 0) {
+        this.trucoPoints = 3;
+        this.trucoLabel = 'Seis';
+        this.trucoClicks++;
+      } else if (this.trucoClicks === 1) {
+        this.trucoPoints = 6;
+        this.trucoLabel = 'Nove';
+        this.trucoClicks++;
+      } else if (this.trucoClicks === 2) {
+        this.trucoPoints = 9;
+        this.trucoLabel = 'Doze';
+        this.trucoClicks++;
+      } else if (this.trucoClicks === 3) {
+        this.trucoPoints = 12;
+        this.trucoLabel = '1 Ponto';
+        this.trucoClicks++;
+      } else {
+        this.trucoPoints = 1;
+        this.trucoLabel = 'Truco';
+        this.trucoClicks = 0;
+      }
+    }
+
+    protected resetTruco() {
+      this.trucoPoints = 1;
+      this.trucoLabel = 'Truco';
+      this.trucoClicks = 0;
     }
 }

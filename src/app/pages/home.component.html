@@ -30,20 +30,31 @@
       </button>
     </footer>
   } @else {
-    <div class="flex-1 grid sm:grid-cols-1 md:grid-cols-2 gap-y-4 justify-items-center items-center w-full">
+    <div class="flex-1 grid sm:grid-cols-1 md:grid-cols-3 gap-y-4 justify-items-center items-center w-full">
       <app-teams #left
                  [teams]="leftTeam"
                  [isMatchInProgress]="true"
+                 [trucoPoints]="trucoPoints"
                  [playSounds]="playSounds"
                  (selectedTeam)="leftTeam = $event"
+                 (handScored)="resetTruco()"
                  (teamWon)="onTeamWin()">
       </app-teams>
+
+      <button (click)="truco()"
+              class="w-52 p-1 sm:p-2 bg-zinc-800 text-white rounded-lg flex justify-center items-center gap-2 shadow-lg cursor-pointer">
+        <mat-icon>sports_soccer</mat-icon>
+        <span class="text-lg sm:text-xl w-1/2">{{ trucoLabel }}</span>
+        <mat-icon>sports_soccer</mat-icon>
+      </button>
 
       <app-teams #right
                  [teams]="rightTeam"
                  [isMatchInProgress]="true"
+                 [trucoPoints]="trucoPoints"
                  [playSounds]="playSounds"
                  (selectedTeam)="rightTeam = $event"
+                 (handScored)="resetTruco()"
                  (teamWon)="onTeamWin()">
       </app-teams>
     </div>

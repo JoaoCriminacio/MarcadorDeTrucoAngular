@@ -18,18 +18,20 @@ import {take} from 'rxjs';
 export class TeamsComponent {
     teams = input<ITeam | ITeam[]>();
     isMatchInProgress = input<boolean>(false);
+    trucoPoints = input<number>(1);
     playSounds = input<boolean>(true);
+
     selectedTeam = output<ITeam | undefined>();
     teamWon = output<string>();
+    handScored = output<void>();
 
     protected selectedIndex: number = 0;
     protected nextIndex: number | null = null;
     protected isTeamSelected: boolean = false;
+
     protected points: number = 0;
     protected victories: number = 0;
-    protected trucoClicks: number = 0;
-    protected trucoPoints: number = 1;
-    protected trucoLabel: string = 'Truco';
+
     protected currentAnimation = '';
     protected nextAnimation = '';
 
@@ -42,9 +44,6 @@ export class TeamsComponent {
 
     public resetPoints() {
       this.points = 0;
-      this.trucoPoints = 1;
-      this.trucoLabel = 'Truco';
-      this.trucoClicks = 0;
     }
 
     protected navigate (direction: number) {
@@ -92,10 +91,8 @@ export class TeamsComponent {
     }
 
     protected addPoints() {
-      this.points += this.trucoPoints;
-      this.trucoLabel = 'Truco';
-      this.trucoPoints = 1;
-      this.trucoClicks = 0;
+      this.points += this.trucoPoints();
+      this.handScored.emit();
 
       if (this.points >= 12) {
         this.openWinDialog();
@@ -105,30 +102,6 @@ export class TeamsComponent {
     protected removePoints() {
       if (this.points === 0) return this.points = 0;
       return this.points -= 1;
-    }
-
-    protected truco () {
-      if (this.trucoClicks === 0) {
-        this.trucoPoints = 3;
-        this.trucoLabel = 'Seis';
-        this.trucoClicks++;
-      } else if (this.trucoClicks === 1) {
-        this.trucoPoints = 6;
-        this.trucoLabel = 'Nove';
-        this.trucoClicks++;
-      } else if (this.trucoClicks === 2) {
-        this.trucoPoints = 9;
-        this.trucoLabel = 'Doze';
-        this.trucoClicks++;
-      } else if (this.trucoClicks === 3) {
-        this.trucoPoints = 12;
-        this.trucoLabel = '1 Ponto';
-        this.trucoClicks++;
-      } else {
-        this.trucoPoints = 1;
-        this.trucoLabel = 'Truco';
-        this.trucoClicks = 0;
-      }
     }
 
     private openWinDialog() {
