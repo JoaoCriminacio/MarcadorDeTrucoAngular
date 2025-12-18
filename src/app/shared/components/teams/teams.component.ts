@@ -4,7 +4,6 @@ import {MatIcon} from '@angular/material/icon';
 import {NgClass} from '@angular/common';
 import {MatDialog} from '@angular/material/dialog';
 import {DialogWinComponent} from '../dialog-win/dialog-win.component';
-import {take} from 'rxjs';
 
 @Component({
   selector: 'app-teams',
@@ -22,15 +21,16 @@ export class TeamsComponent {
     playSounds = input<boolean>(true);
 
     selectedTeam = output<ITeam | undefined>();
-    teamWon = output<string>();
+    teamWon = output<void>();
     handScored = output<void>();
+    scoreAdjusted = output<void>();
+
+    public points: number = 0;
+    public victories: number = 0;
 
     protected selectedIndex: number = 0;
     protected nextIndex: number | null = null;
     protected isTeamSelected: boolean = false;
-
-    protected points: number = 0;
-    protected victories: number = 0;
 
     protected currentAnimation = '';
     protected nextAnimation = '';
@@ -100,11 +100,15 @@ export class TeamsComponent {
     }
 
     protected removePoints() {
-      if (this.points === 0) return this.points = 0;
-      return this.points -= 1;
+      if (this.points === 0) return;
+      this.points -= 1;
+      this.scoreAdjusted.emit();
     }
 
     private openWinDialog() {
+      this.victories > 99999 ? this.victories = 0 : this.victories++;
+      this.teamWon.emit();
+
       this.dialog.open(DialogWinComponent, {
         data: {
           team: this.teams(),
@@ -112,9 +116,6 @@ export class TeamsComponent {
         },
         backdropClass: 'dialog-backdrop',
         panelClass: 'transparent-dialog-panel'
-      }).afterClosed().pipe(take(1)).subscribe(() => {
-        this.teamWon.emit('The match is over!');
-        this.victories > 99999 ? this.victories = 0 : this.victories++;
-      });
+      })
     }
 }

@@ -37,7 +37,8 @@
                  [trucoPoints]="trucoPoints"
                  [playSounds]="playSounds"
                  (selectedTeam)="leftTeam = $event"
-                 (handScored)="resetTruco()"
+                 (handScored)="resetTruco(); saveState()"
+                 (scoreAdjusted)="saveState()"
                  (teamWon)="onTeamWin()">
       </app-teams>
 
@@ -54,7 +55,8 @@
                  [trucoPoints]="trucoPoints"
                  [playSounds]="playSounds"
                  (selectedTeam)="rightTeam = $event"
-                 (handScored)="resetTruco()"
+                 (handScored)="resetTruco(); saveState()"
+                 (scoreAdjusted)="saveState()"
                  (teamWon)="onTeamWin()">
       </app-teams>
     </div>
