@@ -5,6 +5,7 @@ import {TeamsComponent} from '../shared/components/teams/teams.component';
 import {NgClass} from '@angular/common';
 import {MatIcon} from '@angular/material/icon';
 import {MatTooltip} from '@angular/material/tooltip';
+import confetti from 'canvas-confetti';
 
 const teams: ITeam[] = [
   {
@@ -218,6 +219,14 @@ export class HomeComponent implements OnInit {
     }
 
     protected onTeamWin() {
+      confetti({
+        particleCount: 400,
+        spread: 80,
+        ticks: 400,
+        origin: { y: 0.5 },
+        zIndex: 2000
+      });
+
       this.leftTeamComponent()?.resetPoints();
       this.rightTeamComponent()?.resetPoints();
       this.saveState();

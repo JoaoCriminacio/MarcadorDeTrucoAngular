@@ -1,39 +1,100 @@
-.campo {
+.content {
+  position: relative;
+  z-index: 5;
+  max-height: 100vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.wrapper {
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #5d8f4b;
   overflow: hidden;
 }
 
-.campo-linhas {
+.field {
   position: absolute;
   inset: 0;
+  background-color: #5a8f3e;
+}
+
+.line-field {
+  position: absolute;
+  inset: 4%;
   pointer-events: none;
 }
 
-.conteudo {
-  position: relative;
-  z-index: 5;
+.field-border {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255,255,255,0.9);
 }
 
-.linha-central {
+.central-line {
   position: absolute;
   top: 50%;
-  left: 0;
   width: 100%;
-  height: 4px;
-  background-color: rgba(255, 255, 255, 0.85);
+  height: 2px;
+  background: rgba(255,255,255,0.9);
   transform: translateY(-50%);
 }
 
-.circulo-central {
+.central-circle {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 200px;
-  height: 200px;
-  border: 4px solid rgba(255, 255, 255, 0.85);
+  width: 20%;
+  aspect-ratio: 1;
+  border: 2px solid rgba(255,255,255,0.9);
   border-radius: 50%;
   transform: translate(-50%, -50%);
+}
+
+.central-point {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: white;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.area {
+  position: absolute;
+  left: 50%;
+  width: 38%;
+  height: 8%;
+  border: 2px solid rgba(255,255,255,0.9);
+  transform: translateX(-50%);
+}
+
+.area-top { top: 0; }
+.area-bottom { bottom: 0; }
+
+.small-area {
+  position: absolute;
+  left: 50%;
+  width: 22%;
+  height: 5%;
+  border: 2px solid rgba(255,255,255,0.9);
+  transform: translateX(-50%);
+}
+
+.small-area-top { top: 0; }
+.small-area-bottom { bottom: 0; }
+
+@media (min-width: 48rem) {
+  .field {
+    width: 100vh;
+    height: 100vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%) rotate(90deg);
+    transform-origin: center;
+  }
 }
