@@ -1,10 +1,10 @@
 <div class="flex flex-col items-center gap-y-6 w-full max-w-[320px]">
-  <h2 class="text-lg sm:text-3xl text-center text-white w-full p-1 sm:p-2 bg-blue-600 rounded-lg shadow-lg">{{ imagesArray[selectedIndex].name }}</h2>
+  <h2 class="text-lg sm:text-3xl text-center text-white w-full p-1 sm:p-2 bg-blue-500 rounded-lg shadow-lg">{{ imagesArray[selectedIndex].name }}</h2>
 
   <div class="flex items-center justify-center w-full gap-x-4">
     <button [ngClass]="{'invisible': isTeamSelected || isMatchInProgress()}"
             (click)="navigate(-1)"
-            class="h-6 w-6 bg-blue-600 text-white rounded-full flex justify-center items-center shadow-lg hover:bg-blue-700 transition cursor-pointer">
+            class="h-6 w-6 bg-blue-500 text-white rounded-full flex justify-center items-center shadow-lg hover:bg-blue-600 transition cursor-pointer">
       <mat-icon>chevron_left</mat-icon>
     </button>
 
@@ -27,7 +27,7 @@
 
     <button [ngClass]="{'invisible': isTeamSelected  || isMatchInProgress()}"
             (click)="navigate(1)"
-            class="h-6 w-6 bg-blue-600 text-white rounded-full flex justify-center items-center shadow-lg hover:bg-blue-700 transition cursor-pointer">
+            class="h-6 w-6 bg-blue-500 text-white rounded-full flex justify-center items-center shadow-lg hover:bg-blue-600 transition cursor-pointer">
       <mat-icon>chevron_right</mat-icon>
     </button>
   </div>
@@ -35,15 +35,15 @@
   @if (isMatchInProgress()) {
     <div class="flex justify-center items-center gap-x-6">
       <button (click)="removePoints()"
-              class="h-10 w-12 bg-red-600 text-white rounded-lg flex justify-center items-center gap-1 shadow-lg cursor-pointer">
+              class="h-10 w-12 bg-red-500 text-white rounded-lg flex justify-center items-center gap-1 shadow-lg cursor-pointer">
         <span class="text-sm font-semibold">-</span>
         <span class="text-sm font-semibold">1</span>
       </button>
 
-      <h2 class="w-14 sm:w-16 p-2 text-3xl sm:text-4xl text-center font-bold text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
+      <h2 class="w-14 sm:w-16 p-2 text-3xl sm:text-4xl text-center font-bold text-white bg-blue-500 rounded-lg shadow-lg">{{ points }}</h2>
 
       <button (click)="addPoints()"
-              class="h-10 w-12 bg-green-600 text-white rounded-lg flex justify-center items-center gap-1 shadow-lg cursor-pointer">
+              class="h-10 w-12 bg-green-500 text-white rounded-lg flex justify-center items-center gap-1 shadow-lg cursor-pointer">
         <span class="text-sm font-semibold">+</span>
         <span class="text-sm font-semibold">{{ this.trucoPoints() }}</span>
       </button>

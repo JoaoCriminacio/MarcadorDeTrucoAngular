@@ -1,0 +1,39 @@
+.campo {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background-color: #5d8f4b;
+  overflow: hidden;
+}
+
+.campo-linhas {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.conteudo {
+  position: relative;
+  z-index: 5;
+}
+
+.linha-central {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-50%);
+}
+
+.circulo-central {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border: 4px solid rgba(255, 255, 255, 0.85);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
