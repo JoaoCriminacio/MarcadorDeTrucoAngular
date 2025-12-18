@@ -1,5 +1,5 @@
-<div class="flex flex-col items-center gap-y-6 w-full max-w-[320px] px-2">
-  <h2 class="text-xl sm:text-3xl text-center w-full p-1 sm:p-2 bg-blue-600 text-white rounded-lg shadow-lg">{{ imagesArray[selectedIndex].name }}</h2>
+<div class="flex flex-col items-center gap-y-6 w-full max-w-[320px]">
+  <h2 class="text-lg sm:text-3xl text-center text-white w-full p-1 sm:p-2 bg-blue-600 rounded-lg shadow-lg">{{ imagesArray[selectedIndex].name }}</h2>
 
   <div class="flex items-center justify-center w-full gap-x-4">
     <button [ngClass]="{'invisible': isTeamSelected || isMatchInProgress()}"
@@ -9,7 +9,7 @@
     </button>
 
     <div [ngClass]="{'opacity-50': isTeamSelected}"
-         class="flex justify-center items-center w-32 h-32 sm:w-48 sm:h-48 md:w-72 md:h-72 overflow-hidden relative">
+         class="flex justify-center items-center w-24 h-24 sm:w-48 sm:h-48 md:w-72 md:h-72 overflow-hidden relative">
 
       <img [src]="imagesArray[selectedIndex].src"
            [alt]="imagesArray[selectedIndex].alt"
@@ -35,26 +35,28 @@
   @if (isMatchInProgress()) {
     <div class="flex justify-center items-center gap-x-6">
       <button (click)="removePoints()"
-              class="h-10 w-10 bg-red-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-red-700 transition cursor-pointer">
+              class="h-8 w-8 bg-red-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-red-700 transition cursor-pointer">
         <mat-icon>remove</mat-icon>
       </button>
 
-      <h2 class="w-16 p-2 text-4xl text-center font-bold text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
+      <h2 class="w-14 p-2 text-3xl sm:text-4xl text-center font-bold text-white bg-blue-600 rounded-lg shadow-lg">{{ points }}</h2>
 
       <button (click)="addPoints()"
-              class="h-10 w-10 bg-green-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-green-700 transition cursor-pointer">
+              class="h-8 w-8 bg-green-600 text-white rounded-lg flex justify-center items-center shadow-lg hover:bg-green-700 transition cursor-pointer">
         <mat-icon>add</mat-icon>
       </button>
     </div>
 
-    <button (click)="truco()"
-            class="w-44 p-2 bg-black text-white rounded-lg flex justify-center items-center gap-4 shadow-lg hover:bg-gray-950 transition cursor-pointer">
-      <mat-icon>sports_soccer</mat-icon>
-      <span class="text-xl w-1/2">{{ trucoLabel }}</span>
-      <mat-icon>sports_soccer</mat-icon>
-    </button>
+    <div class="flex flex-col items-center gap-y-2 w-full">
+      <button (click)="truco()"
+              class="w-40 sm:w-44 p-1 sm:p-2 bg-black text-white rounded-lg flex justify-center items-center gap-4 shadow-lg hover:bg-gray-950 transition cursor-pointer">
+        <mat-icon>sports_soccer</mat-icon>
+        <span class="text-lg sm:text-xl w-1/2">{{ trucoLabel }}</span>
+        <mat-icon>sports_soccer</mat-icon>
+      </button>
 
-    <span class="p-2 bg-gray-400 text-white rounded-lg shadow-lg">Vitórias: {{ victories }}</span>
+      <span class="w-28 p-1 sm:p-2 bg-gray-400 text-white text-center text-sm sm:text-base rounded-lg shadow-lg">Vitórias: {{ victories }}</span>
+    </div>
   }
 
   @if (!isMatchInProgress()) {
