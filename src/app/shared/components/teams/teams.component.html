@@ -62,12 +62,12 @@
   @if (!isMatchInProgress()) {
     @if (!isTeamSelected) {
       <button (click)="onSelectTeam(imagesArray[selectedIndex])"
-              class="w-44 p-2 bg-lime-500 text-white rounded-full shadow-lg hover:bg-lime-600 transition cursor-pointer">
+              class="w-40 sm:w-44 p-1 sm:p-2 bg-lime-500 text-white rounded-full shadow-lg hover:bg-lime-600 transition cursor-pointer">
         Selecione seu time
       </button>
     } @else {
       <button (click)="onUnselectTeam()"
-              class="w-44 p-2 bg-orange-500 text-white rounded-full shadow-lg hover:bg-orange-600 transition cursor-pointer">
+              class="w-40 sm:w-44 p-1 sm:p-2 bg-orange-500 text-white rounded-full shadow-lg hover:bg-orange-600 transition cursor-pointer">
         Escolha outro time
       </button>
     }

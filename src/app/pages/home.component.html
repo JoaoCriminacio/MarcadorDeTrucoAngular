@@ -8,7 +8,7 @@
   </button>
 
   @if (!isMatchInProgress) {
-    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 mt-8 md:mt-20 gap-y-12 gap-x-6 justify-items-center items-center w-full px-4">
+    <div class="flex-1 grid sm:grid-cols-1 md:grid-cols-2 mt-8 md:mt-20 gap-y-12 gap-x-6 justify-items-center items-center w-full">
       <app-teams [teams]="images"
                  [playSounds]="playSounds"
                  (selectedTeam)="leftTeam = $event">
@@ -20,8 +20,8 @@
       </app-teams>
     </div>
 
-    <footer class="mt-auto flex justify-center py-6">
-      <button class="p-2 mt-6 w-48 rounded-full bg-blue-600 text-white shadow-lg"
+    <footer class="mt-auto flex justify-center py-4">
+      <button class="w-40 sm:w-44 p-1 sm:p-2 mt-6 rounded-full bg-blue-600 text-white shadow-lg"
               [disabled]="!leftTeam || !rightTeam"
               [ngClass]="{'opacity-50': !leftTeam || !rightTeam,
                       'hover:bg-blue-700 transition cursor-pointer': leftTeam && rightTeam}"
@@ -30,7 +30,7 @@
       </button>
     </footer>
   } @else {
-    <div class="grid grid-cols-1 md:grid-cols-2 mt-4 md:mt-20 gap-y-6 gap-x-6 justify-items-center items-center w-full px-4">
+    <div class="grid sm:grid-cols-1 md:grid-cols-2 mt-4 md:mt-20 gap-y-6 gap-x-6 justify-items-center items-center w-full">
       <app-teams #left
                  [teams]="leftTeam"
                  [isMatchInProgress]="true"
@@ -48,8 +48,8 @@
       </app-teams>
     </div>
 
-    <footer class="mt-auto flex justify-center py-6">
-      <button class="p-2 mt-6 w-48 rounded-full bg-blue-600 text-white shadow-lg"
+    <footer class="mt-auto flex justify-center py-4">
+      <button class="w-40 sm:w-44 p-1 sm:p-2 mt-6 rounded-full bg-blue-600 text-white shadow-lg"
               [ngClass]="{'opacity-50': !leftTeam || !rightTeam,
                           'hover:bg-blue-700 transition cursor-pointer': leftTeam && rightTeam}"
               (click)="finishMatch()">
