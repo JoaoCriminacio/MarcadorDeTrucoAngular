@@ -1,11 +1,10 @@
 <h1 align="center"> Marcador de Truco - Angular </h1>
 
 <h2>Seleção de Times</h2>
-<img width="1920" height="945" alt="2025-12-18_14h23_39" src="https://github.com/user-attachments/assets/e31f8fbf-ea3c-40ff-9597-dddb215062da" />
+<img width="1920" height="945" alt="2025-12-18_17h01_28" src="https://github.com/user-attachments/assets/ab2f076d-ca61-4332-816e-2bd6daa7ecd0" />
 
 <h2>Partida</h2>
-<img width="1920" height="945" alt="2025-12-18_14h23_49" src="https://github.com/user-attachments/assets/7e99c09f-68e6-4634-aa5c-331a31ece04e" />
-
+<img width="1920" height="945" alt="2025-12-18_17h01_37" src="https://github.com/user-attachments/assets/d8226915-07fb-4d23-929a-ce12d2049a1d" />
 
 ## 🛠 Tecnologias
 
